@@ -1,0 +1,63 @@
+  
+  <nav class="navbar navbar-expand fixed-top menu">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto menu-margin-left">
+        <h1 class="nav-link font-menu">Contact</h1>
+      </ul>
+    </div>
+  </nav>
+
+ <div class="container margin-top-100" *ngIf="!!contactform; else contactformEmpty">
+
+  <form #form="ngForm">
+    
+    <div class="row margin-bottom-15">
+      <div class="col-sm-3">
+        <label>Contact ID</label>
+        <input class="form-control" name="contact_id" placeholder="Contact ID" [(ngModel)]=contactform.contact_id [disabled]="true">
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>User ID</label>
+        <input class="form-control" placeholder="User ID" name="user" [(ngModel)]=contactform.user.user_id [disabled]="isDisables">
+      </div>
+
+      <div class="col-sm">
+        <label>Name</label>
+        <input class="form-control" placeholder="Name" name="name" [(ngModel)]=contactform.name [disabled]="isDisables">
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm-6">
+        <label>E-mail</label>
+        <input class="form-control" placeholder="E-mail" name="email" [(ngModel)]=contactform.email [disabled]="isDisables">
+      </div>
+
+      <div class="col-sm-6">
+        <label>Phone</label>
+        <input class="form-control" placeholder="Phone" name="phoneNo" [(ngModel)]=contactform.phoneNo [disabled]="isDisables">
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Message</label>
+        <textarea class="form-control" rows="3"  name="messege" [(ngModel)]=contactform.messege [disabled]="isDisables"></textarea>
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm-4">
+        <button type="submit" class="btn btn-primary" (click)="senform(form)" [disabled]=isDisables>Submit</button>
+      </div>
+    </div>
+  </form>
+
+  </div>
+  
+  <ng-template #contactformEmpty>
+    <p>Contact Not Found</p>
+  </ng-template>

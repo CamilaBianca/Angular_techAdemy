@@ -1,0 +1,62 @@
+
+/****************************************STYLE COMUM*****************************************/
+
+.margin-bottom-15{
+	margin-bottom: 15px;
+}
+
+.margin-top-100{
+	margin-top: 100px;
+}
+
+.margin-top-30{
+	margin-top: 30px;
+}
+
+.btn-add{
+	color: rgb(255, 255, 255);
+	background-color: rgb(92, 122, 204);
+	border-color: rgb(92, 122, 204);
+}
+
+.btn-update{
+	color: rgb(255, 255, 255);
+	background-color: rgb(243, 172, 86);
+	border-color: rgb(243, 172, 86);
+}
+
+.btn-view{
+	color: rgb(255, 255, 255);
+	background-color: rgb(56, 134, 60);
+	border-color: rgb(56, 134, 60);
+}
+
+.btn-delete{
+	color: rgb(255, 255, 255);
+	background-color: rgb(182, 73, 87);
+	border-color: rgb(182, 73, 87);
+}
+
+/**********************************************************************************************/
+
+/****************************************STYLE MENU*******************************************/
+
+.menu{
+	height: 80px;	
+   -webkit-box-shadow: 0px 0px 8px 2px rgb(53, 53, 53);
+   -moz-box-shadow: 0px 0px 8px 2px rgb(53, 53, 53);
+   box-shadow: 0px 0px 8px 2px rgb(53, 53, 53);
+   background-color: white;
+}
+
+.font-menu{
+	color: rgb(81, 85, 82);
+	font-family: roboto;
+	font-size: 1.3em;
+}
+
+.menu-margin-left{
+	margin-left: 42%;
+}
+
+/**********************************************************************************************/

@@ -1,0 +1,46 @@
+  <nav class="navbar navbar-expand fixed-top menu">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto menu-margin-left">
+        <h1 class="nav-link font-menu">Admin</h1>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container margin-top-100" *ngIf="!!adminform; else adminformEmpty">
+    <form #form="ngForm">
+    
+      <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Admin ID</label>
+        <input class="form-control" placeholder="Admin ID" name="admin_id" [(ngModel)]=adminform.admin_id [disabled]="true">
+      </div>
+
+      <div class="col-sm">
+        <label>Name</label>
+        <input class="form-control" placeholder="Name"  name="name" [(ngModel)]=adminform.name [disabled]=isDisables>
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>E-mail</label>
+        <input class="form-control" placeholder="E-mail" name="email" [(ngModel)]=adminform.email [disabled]=isDisables>
+      </div>
+
+      <div class="col-sm">
+        <label>Password</label>
+        <input class="form-control" placeholder="Password" type="password" name="password" [(ngModel)]=adminform.password [disabled]=isDisables>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <button type="submit" class="btn btn-primary" (click)="senform(form)" [disabled]=isDisables>Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #adminformEmpty>
+  <p>Admin Not Found</p>
+</ng-template>

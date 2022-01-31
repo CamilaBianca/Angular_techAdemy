@@ -1,0 +1,63 @@
+  <nav class="navbar navbar-expand fixed-top menu">
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto menu-margin-left">
+        <h1 class="nav-link font-menu">Course</h1>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container margin-top-100" *ngIf="!!courseform; else courseformEmpty">
+
+    <form #form="ngForm">
+    
+    <div class="row margin-bottom-15">
+      <div class="col-sm-3">
+        <label>User ID</label>
+        <input class="form-control" placeholder="User ID"  name="course_id" [(ngModel)]=courseform.course_id [disabled]="true">
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Course Name</label>
+        <input class="form-control" placeholder="Course Name" name="cName" [(ngModel)]=courseform.cName [disabled]=isDisables>
+      </div>
+
+      <div class="col-sm">
+        <label>Course Fees</label>
+        <input class="form-control" placeholder="Course Fees" name="cFees" [(ngModel)]=courseform.cFees [disabled]=isDisables>
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Course Description</label>
+        <textarea class="form-control" rows="3" name="cDesp" [(ngModel)]=courseform.cDesp [disabled]=isDisables></textarea>
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Course Resources</label>
+        <input class="form-control" checked disabled  name="cResource" [(ngModel)]=courseform.cResource [disabled]=isDisables>
+      </div>
+
+      <div class="col-sm">
+        <input type="file" class="form-control-file" [disabled]=isDisables (change)="onFileSelected($event)">
+      </div>
+    </div>
+
+    <div class="row">
+    </div>
+
+    <div class="row ">
+      <div class="col-sm">
+        <button type="submit" class="btn btn-primary" (click)="senform(form)" [disabled]=isDisables>Submit</button>
+      </div>
+    </div>
+    </form>
+  </div>
+
+  <ng-template #courseformEmpty>
+    <p>Course Not Found</p>
+  </ng-template>

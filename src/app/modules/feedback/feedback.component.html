@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand fixed-top menu">
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto menu-margin-left">
+      <div class="row">
+        <div class="col-sm-10">
+          <label class="font-menu">Feedback</label>
+        </div>
+      </div>
+    </ul>
+  </div>
+</nav>
+
+<div class="container margin-top-100" *ngIf="!!feedbackform; else feedbackformEmpty" >
+  <form #form="ngForm">
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Feedback ID</label>
+        <input class="form-control" name="f_id" placeholder="Feedback ID" [(ngModel)]=feedbackform.f_id [disabled]="true">
+      </div>
+
+      <div class="col-sm">
+        <label>User ID</label>
+        <input class="form-control" name="user_id" placeholder="User ID" [(ngModel)]=feedbackform.user.user_id [disabled]=isDisables>
+      </div>
+
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Name</label>
+        <input class="form-control" name="name" placeholder="Name" [(ngModel)]=feedbackform.name [disabled]=isDisables>
+      </div>
+
+      <div class="col-sm">
+        <label>E-mail</label>
+        <input class="form-control" name="email" placeholder="E-mail" [(ngModel)]=feedbackform.email [disabled]=isDisables>
+      </div>
+    </div>
+
+    <div class="row margin-bottom-15">
+      <div class="col-sm">
+        <label>Feedback</label>
+        <textarea class="form-control" name="feedback" rows="3" [(ngModel)]=feedbackform.feedback [disabled]=isDisables></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <button type="submit" class="btn btn-primary" (click)="senform(form)" [disabled]=isDisables>Register</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<ng-template #userformEmpty>
+  <p>User Not Found</p>
+  </ng-template>

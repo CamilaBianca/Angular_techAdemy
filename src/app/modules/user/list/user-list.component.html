@@ -1,0 +1,32 @@
+<div class="container margin-top-30">
+	<div class="row">
+	  <div class="col text-center">
+		<button type="button" class="btn-primary btn-add" routerLink="add">Add User</button>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody *ngIf="!!listUsers; else listEmpty">
+				<tr *ngFor="let user of listUsers">
+					<td>{{ user.name }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.phoneNo }}</td>
+					<td>
+						<button type="button" class="btn-primary btn-update" [routerLink]="['update', user.user_id]">Update</button>
+						<button type="button" class="btn-danger btn-delete" (click)="deleteUser(user.user_id)">Delete</button>
+						<button type="button" class="btn-primary btn-view" [routerLink]="['view', user.user_id]">View</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<ng-template #listEmpty>
+				<p>Users Not Found</p>
+			</ng-template>
+		</div>
+	</div>
+</div>

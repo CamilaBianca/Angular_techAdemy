@@ -1,0 +1,77 @@
+
+
+		<nav class="navbar navbar-expand fixed-top menu">
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto menu-margin-left">
+					<div class="row">
+						<div class="col-sm-10">
+							<label class="font-menu">User</label>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container margin-top-100" *ngIf="!!userform; else userformEmpty" >
+			<form #form="ngForm">
+
+				<div class="row margin-bottom-15">
+					<div class="col-sm-3">
+						<label>User ID</label>
+						<input class="form-control" name="user_id" placeholder="User ID" [(ngModel)]=userform.user_id [disabled]="true">
+					</div>
+				</div>
+
+				<div class="row margin-bottom-15">
+					<div class="col-sm">
+						<label>Name</label>
+						<input class="form-control" name="name" placeholder="Name" [(ngModel)]=userform.name [disabled]=isDisables>
+					</div>
+
+					<div class="col-sm">
+						<label>E-mail</label>
+						<input class="form-control" name="email" placeholder="E-mail" [(ngModel)]=userform.email [disabled]=isDisables>
+					</div>
+				</div>
+
+				<div class="row margin-bottom-15">
+					<div class="col-sm">
+						<label>Password</label>
+						<input class="form-control" type="password" name="password" placeholder="Password" [(ngModel)]=userform.password [disabled]=isDisables>
+					</div>
+
+					<div class="col-sm">
+						<label>Phone</label>
+						<input class="form-control" name="phoneNo" placeholder="Phone" [(ngModel)]=userform.phoneNo [disabled]=isDisables>
+					</div>
+				</div>
+
+				<div class="row margin-bottom-15">
+					<div class="col-sm">
+						<label>Address</label>
+						<textarea class="form-control" name="address" rows="3" [(ngModel)]=userform.address [disabled]=isDisables></textarea>
+					</div>
+				</div>
+
+				<div class="row margin-bottom-15">
+					<div class="col-sm">
+						<label>Upload Photo</label>
+						<input class="form-control" name="uploadPhoto" [(ngModel)]=userform.uploadPhoto disabled>
+					</div>
+
+					<div class="col-sm text-center">
+						<input type="file" class="form-control-file" [disabled]=isDisables (change)="onFileSelected($event)">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm">
+						<button type="submit" class="btn btn-primary" (click)="senform(form)" [disabled]=isDisables>Register</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<ng-template #userformEmpty>
+			<p>User Not Found</p>
+		</ng-template>

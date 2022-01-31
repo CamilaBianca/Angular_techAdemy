@@ -1,0 +1,30 @@
+<div class="container margin-top-30">
+	<div class="row">
+	  <div class="col text-center">
+		<button type="button" class="btn-primary btn-add" routerLink="add">Add Admin</button>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody *ngIf="!!listAdmin; else listEmpty">
+				<tr *ngFor="let admin of listAdmin">
+					<td>{{ admin.name }}</td>
+					<td>{{ admin.email }}</td>
+					<td>
+						<button type="button" class="btn-primary btn-update" [routerLink]="['update', admin.admin_id]">Update</button>
+						<button type="button" class="btn-danger btn-delete" (click)="deleteAdmin(admin.admin_id)">Delete</button>
+						<button type="button" class="btn-primary btn-view" [routerLink]="['view', admin.admin_id]">View</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<ng-template #listEmpty>
+				<p>Admin Not Found</p>
+			</ng-template>
+		</div>
+	</div>
+</div>

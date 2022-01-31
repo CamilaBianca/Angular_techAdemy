@@ -1,0 +1,30 @@
+<div class="container margin-top-30">
+	<div class="row">
+	  <div class="col text-center">
+		<button type="button" class="btn-primary btn-add" routerLink="add">Add Course</button>
+			<table class="table table-striped">
+				<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Actions</th>
+				</tr>
+				</thead>
+				<tbody *ngIf="!!listCourse; else listEmpty">
+				<tr *ngFor="let course of listCourse">
+					<td>{{ course.cName }}</td>
+					<td>{{ course.cDesp }}</td>
+					<td>
+						<button type="button" class="btn-primary btn-update" [routerLink]="['update', course.course_id]">Update</button>
+						<button type="button" class="btn-danger btn-delete" (click)="deleteCourse(course.course_id)">Delete</button>
+						<button type="button" class="btn-primary btn-view" [routerLink]="['view', course.course_id]">View</button>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<ng-template #listEmpty>
+				<p>Course Not Found</p>
+			</ng-template>
+		</div>
+	</div>
+</div>
